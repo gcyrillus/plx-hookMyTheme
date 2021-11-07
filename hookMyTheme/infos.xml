@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <title><![CDATA[HookMyTheme]]></title>
+    <author><![CDATA[GC-nomade]]></author>
+    <version>1.0</version>
+    <date>20/03/2021</date>
+    <site>http://re7net.com</site>
+    <description><![CDATA[Petit plugin regroupant les 2 HOOKs du theme et ajoutant un HOOK customisable sur une balise du théme._-\|/-_. 
+	Les fichier PhP du théme peuvent être affiché pour rechercher la balise où appliquer votre hook._-\|/-_. A utiliser avec précaution.]]></description>
+    <scope></scope>
+</document>
