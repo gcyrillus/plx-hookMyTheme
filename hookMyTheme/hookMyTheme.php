@@ -24,7 +24,13 @@
 		$this->setConfigProfil(PROFIL_ADMIN);	
 		
 		# limite l'accès à l'écran d'administration du plugin
-        $this->setAdminProfil(PROFIL_ADMIN);
+                $this->setAdminProfil(PROFIL_ADMIN);
+	    
+		# initialisation variables
+		$this->aParams['tag1'			]['value']= $this->getParam('tag1'			)	=='' ? '' : $this->getParam('tag1'			);
+		$this->aParams['tag2'			]['value']= $this->getParam('tag2'			)	=='' ? '' : $this->getParam('tag2'			);
+		$this->aParams['ThemeEndBody'	]['value']= $this->getParam('ThemeEndBody'	)	=='' ? '' : $this->getParam('ThemeEndBody'	);
+		$this->aParams['ThemeEndHead'	]['value']= $this->getParam('ThemeEndHead'	)	=='' ? '' : $this->getParam('ThemeEndHead'	); 	    
 
     }
 		function str_replace_limit($haystack, $needle, $replace, $limit, $start_pos = 0) {
