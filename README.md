@@ -5,5 +5,7 @@ plugin permettant de modifier le code de votre thème actif  et  d'y injecter du
 
    
 		HookMyTheme - Version 1.1.1 (24/04/2022)
-Petit plugin regroupant les 2 HOOKs du theme et ajoutant un HOOK customisable sur une balise du théme._-\\|/-_. 
-	Les fichier PhP du théme peuvent être affiché pour rechercher la balise où appliquer votre hook._-\\|/-_. A utiliser avec précaution. 
+		- Regroupe les 2 HOOKs du thème
+		- ajoute un HOOK customisable sur une chaine au choix (balise , texte, attribut)._-\|/-_. 
+	Les fichier PhP du théme peuvent être affiché pour rechercher la balise où appliquer votre hook._-\|/-_. A utiliser avec précaution.
+                - gestion des fichiers langues pour le multilingue.
