@@ -18,7 +18,6 @@
 $plxAdmin->checkProfil(PROFIL_ADMIN);		
 
 $tpl= $plxPlugin->getParam('template');
-
 $style = $plxAdmin->aConf['style'];
 $filename = realpath(PLX_ROOT.$plxAdmin->aConf['racine_themes'].$style.'/'.$tpl);
 if(!preg_match('#^'.str_replace('\\', '/', realpath(PLX_ROOT.$plxAdmin->aConf['racine_themes'].$style.'/').'#'), str_replace('\\', '/', $filename))) {
@@ -31,8 +30,6 @@ if(empty($style) OR !is_dir(PLX_ROOT.$plxAdmin->aConf['racine_themes'].$style)) 
 	plxMsg::Error(L_CONFIG_EDITTPL_ERROR_NOTHEME);
 	exit;
 }
-
-
 
 # On récupère les fichiers templates du thèmes
 $aTemplates=array();
@@ -97,88 +94,88 @@ legend {
   border-radius:0.25em;
 }
 label {
-  font-weight:bold;
-  text-indent:1em;
-}
+	font-weight:bold;
+	text-indent:1em;
+	}
 p {
-  font-size:0.75em;
-  color:#555;
-  padding:0 1em;
+	font-size:0.75em;
+	color:#555;
+	padding:0 1em;
 }
 input[type="submit"] {
   margin:1em auto;
 }
 textarea {
-  margin:0.5em;
-  flex-grow:1;
-  max-width:calc(100% - 1em);
+	margin:0.5em;
+	flex-grow:1;
+	max-width:calc(100% - 1em);
 }
 form>p {
-  margin:auto;
-  font-size:clamp(1em,3vw,20px);
+	margin:auto;
+	font-size:clamp(1em,3vw,20px);
 }
 #iptTpl {
-  position:fixed;right:100vw;
+	position:fixed;right:100vw;
 }
 div label{display:inline-block;}
 div label + label {
-  font-weight:normal;
-  float:right;
-  margin-right:0.5em;
-  color:darkgreen
+	font-weight:normal;
+	float:right;
+	margin-right:0.5em;
+	color:darkgreen
 	}
 #iptTpl ~fieldset label[for="iptTpl"]:before{
-  content:'Voir';
+	content:'<?php echo $plxPlugin->lang('L_SHOW'); ?>';
 }
 #iptTpl:checked ~fieldset label[for="iptTpl"]:before{
-  content:'Cacher';
+	content:'<?php echo $plxPlugin->lang('L_HIDE'); ?>';
 }
 #iptTpl ~fieldset label[for="iptTpl"]:after{
-  content:'';
-  display:inline-block;
-  text-align:center;
-  text-indent:0;
-  font-size:1.5em;
-  color:green;
-  line-height:1rem;
-  height:1.5rem;
-  width:1.5rem;
-  vertical-align:middle;
-  margin:0 0.25em;
-  box-shadow: inset 0 0 2px, inset 0 0 5px #bee,0 0 1px #bee;
+	content:'';
+	display:inline-block;
+	text-align:center;
+	text-indent:0;
+	font-size:1.5em;
+	color:green;
+	line-height:1rem;
+	height:1.5rem;
+	width:1.5rem;
+	vertical-align:middle;
+	margin:0 0.25em;
+	box-shadow: inset 0 0 2px, inset 0 0 5px #bee,0 0 1px #bee;
 }
 #iptTpl:checked ~fieldset label[for="iptTpl"]:after{
-  content:'\2713';
+	content:'\2713';
 }
 .tpl {
-  display:none;
-  background:#cfc;
+	display:none;
+	background:#cfc;
 }
 #iptTpl:checked ~fieldset.tpl {
 	display:flex
 }
 .r1 {
-  grid-row:1;
+	grid-row:1;
 }
 .r2 {
-  grid-row:2;
+	grid-row:2;
 }
 .c1 {
-  grid-column:1;
+	grid-column:1;
 }
 .c2 {
-  grid-column:2;
+	grid-column:2;
 }
 .r1-2 {
-  grid-row:1 / span 2
+	grid-row:1 / span 2
 }
 p code {
-  font-size:inherit;
-  background:white;
+	font-size:inherit;
+	background:white;
 }
 textarea[readonly] {
-  background:#efffef;
-  color:darkblue;
+	background:#efffef;
+	color:darkblue;
 }
 </style>
 <form action="parametres_plugin.php?p=<?php echo $plugin ?>" method="post" class="HookMyTheme">
@@ -191,27 +188,27 @@ textarea[readonly] {
  ?>
 	
 	<fieldset class="r1 c1"><legend>Hook <code>&lt;/head></code></legend>
-	<label>Contenu à ajouter avant la fermeture de head:</label> 
+	<label><?php echo $plxPlugin->lang('L_ADD_END_HEAD'); ?></label> 
 	<p>ex: &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" ></p>
 	<?php plxUtils::printArea('ThemeEndHead',plxUtils::strCheck($plxPlugin->getParam('ThemeEndHead')),0,5); ?>
 	</fieldset>
 	
-	<fieldset class="r1 c2" ><legend>configuration custom hook</legend>
-	<div><label>Tag à rechercher <i>(tag complet avec attributs sans script PhP)</i>:</label>   <label for="iptTpl"> les fichier du thémes</label></div>
+	<fieldset class="r1 c2" ><legend><?php echo $plxPlugin->lang('L_CONFIG_CUSTOM'); ?>configuration custom hook</legend>
+	<div><label><?php echo $plxPlugin->lang('L_TAG_TO_FIND'); ?></label>   <label for="iptTpl"><?php echo $plxPlugin->lang('L_THE_ME_FILES'); ?></label></div>
 	<?php plxUtils::printArea('tag1',plxUtils::strCheck($plxPlugin->getParam('tag1')),0,5); ?>
 	
-	<label>Contenu à ajouter:</label>
+	<label><?php echo $plxPlugin->lang('L_CONTENT_TO_ADD'); ?></label>
 	<?php plxUtils::printArea('tag2',plxUtils::strCheck($plxPlugin->getParam('tag2')),0,5); ?>
 	
 
 	</fieldset>
 
 	<fieldset class="r2 c1"><legend>Hook <code>&lt;/body></code></legend>
-	<label>Contenu à ajouter avant la fermeture de body:</label>
+	<label><?php echo $plxPlugin->lang('L_ADD_END_BODY'); ?></label>
 	<?php plxUtils::printArea('ThemeEndBody',plxUtils::strCheck($plxPlugin->getParam('ThemeEndBody')),0,5); ?>
 	</fieldset>
 	
-	<fieldset class="tpl r1-2 c1"><legend>Fichier du theme</legend>
+	<fieldset class="tpl r1-2 c1"><legend><?php echo $plxPlugin->lang('L_THEME_FILES'); ?></legend>
 	<div class="">
 		<?php plxUtils::printSelectDir('template', $tpl , PLX_ROOT.$plxAdmin->aConf['racine_themes'].$style, 'no-margin', false) ?>
 		<input name="load" type="submit" value="<?php echo L_CONFIG_EDITTPL_LOAD ?>" />
@@ -233,8 +230,8 @@ textarea[readonly] {
 	<div class="grid">
 		<div class="col sml-12">
 			<label for="id_content"><?php echo L_CONTENT_FIELD ?>&nbsp;:</label>
-			<p>Seuls les fichiers du thémes et balises HTML sans php sont exploitables par le hook. ex:<code>&lt;main class="main"&gt;</code>.</p>
-			<p>Selectionner une balise contenant du PhP (ex:<code>&lt;article class="article" id="post-&lt;?php echo $plxShow->artId(); ?&gt;"&gt;</code>) sera sans effets.</p>
+			<p><?php echo $plxPlugin->lang('L_ONLY_HTML_TAG'); ?></p>
+			<p><?php echo $plxPlugin->lang('L_FAIL_EXAMPLE'); ?></p>
 			<?php plxUtils::printArea('uselessHere',plxUtils::strCheck($content), 0, 20,'', 'full-width" readonly="true'); ?>
 		</div>
 	</div>
@@ -243,7 +240,7 @@ textarea[readonly] {
 	<p>
 	<?php 
 		echo plxToken::getTokenPostMethod();?>	
-		<label>Validation et enregistrement du formulaire: <input type="submit" name="submit" value="Enregistrer" /></label>
+		<label><?php echo $plxPlugin->lang('L_SAVE_REGISTER'); ?> <input type="submit" name="submit" value="<?php echo $plxPlugin->lang('L_SAVE_REGISTER'); ?>" /></label>
 	</p>
 </form>
 <?php
