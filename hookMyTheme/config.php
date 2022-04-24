@@ -19,8 +19,6 @@ $plxAdmin->checkProfil(PROFIL_ADMIN);
 
 $tpl= $plxPlugin->getParam('template');
 
-
-#########################################
 $style = $plxAdmin->aConf['style'];
 $filename = realpath(PLX_ROOT.$plxAdmin->aConf['racine_themes'].$style.'/'.$tpl);
 if(!preg_match('#^'.str_replace('\\', '/', realpath(PLX_ROOT.$plxAdmin->aConf['racine_themes'].$style.'/').'#'), str_replace('\\', '/', $filename))) {
@@ -65,8 +63,6 @@ if(file_exists($filename) AND filesize($filename) > 0) {
 		fclose($f);
 	}
 }
-#########################################
-
 ?>
 
 
@@ -101,88 +97,88 @@ legend {
   border-radius:0.25em;
 }
 label {
-	font-weight:bold;
-	text-indent:1em;
-	}
+  font-weight:bold;
+  text-indent:1em;
+}
 p {
-	font-size:0.75em;
-	color:#555;
-	padding:0 1em;
+  font-size:0.75em;
+  color:#555;
+  padding:0 1em;
 }
 input[type="submit"] {
   margin:1em auto;
 }
 textarea {
-	margin:0.5em;
-	flex-grow:1;
-	max-width:calc(100% - 1em);
+  margin:0.5em;
+  flex-grow:1;
+  max-width:calc(100% - 1em);
 }
 form>p {
-	margin:auto;
-	font-size:clamp(1em,3vw,20px);
+  margin:auto;
+  font-size:clamp(1em,3vw,20px);
 }
 #iptTpl {
-	position:fixed;right:100vw;
+  position:fixed;right:100vw;
 }
 div label{display:inline-block;}
 div label + label {
-	font-weight:normal;
-	float:right;
-	margin-right:0.5em;
-	color:darkgreen
+  font-weight:normal;
+  float:right;
+  margin-right:0.5em;
+  color:darkgreen
 	}
 #iptTpl ~fieldset label[for="iptTpl"]:before{
-	content:'Voir';
+  content:'Voir';
 }
 #iptTpl:checked ~fieldset label[for="iptTpl"]:before{
-	content:'Cacher';
+  content:'Cacher';
 }
 #iptTpl ~fieldset label[for="iptTpl"]:after{
-	content:'';
-	display:inline-block;
-	text-align:center;
-	text-indent:0;
-	font-size:1.5em;
-	color:green;
-	line-height:1rem;
-	height:1.5rem;
-	width:1.5rem;
-	vertical-align:middle;
-	margin:0 0.25em;
-	box-shadow: inset 0 0 2px, inset 0 0 5px #bee,0 0 1px #bee;
+  content:'';
+  display:inline-block;
+  text-align:center;
+  text-indent:0;
+  font-size:1.5em;
+  color:green;
+  line-height:1rem;
+  height:1.5rem;
+  width:1.5rem;
+  vertical-align:middle;
+  margin:0 0.25em;
+  box-shadow: inset 0 0 2px, inset 0 0 5px #bee,0 0 1px #bee;
 }
 #iptTpl:checked ~fieldset label[for="iptTpl"]:after{
-	content:'\2713';
+  content:'\2713';
 }
 .tpl {
-	display:none;
-	background:#cfc;
+  display:none;
+  background:#cfc;
 }
 #iptTpl:checked ~fieldset.tpl {
 	display:flex
 }
 .r1 {
-	grid-row:1;
+  grid-row:1;
 }
 .r2 {
-	grid-row:2;
+  grid-row:2;
 }
 .c1 {
-	grid-column:1;
+  grid-column:1;
 }
 .c2 {
-	grid-column:2;
+  grid-column:2;
 }
 .r1-2 {
-	grid-row:1 / span 2
+  grid-row:1 / span 2
 }
 p code {
-	font-size:inherit;
-	background:white;
+  font-size:inherit;
+  background:white;
 }
 textarea[readonly] {
-	background:#efffef;
-	color:darkblue;
+  background:#efffef;
+  color:darkblue;
 }
 </style>
 <form action="parametres_plugin.php?p=<?php echo $plugin ?>" method="post" class="HookMyTheme">
