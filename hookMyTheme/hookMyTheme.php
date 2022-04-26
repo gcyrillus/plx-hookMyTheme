@@ -2,10 +2,11 @@
   class hookMyTheme extends plxPlugin {	 
 
 	const HOOKS = array(
+            'IndexBegin',
             'IndexEnd',
-			'ThemeTag',
-			'ThemeEndBody',
-			'ThemeEndHead',
+            'ThemeTag',
+            'ThemeEndBody',
+            'ThemeEndHead',
         );  
 		
     public function __construct($default_lang) {
@@ -23,14 +24,22 @@
 		$this->setConfigProfil(PROFIL_ADMIN);	
 		
 		# limite l'accès à l'écran d'administration du plugin
-        $this->setAdminProfil(PROFIL_ADMIN);
+                $this->setAdminProfil(PROFIL_ADMIN);
 
     }
 
  
 
-	#fonctions des hooks
-		
+	#les hooks
+        // reset sur l'option GZIP
+        	public function  IndexBegin() {
+            		echo '<?php ';
+				?>
+        			$plxMotor->aConf['gzip'] ='0';
+            			?>
+			<?php           
+		}
+	  
 		#desc hook function
 		public function IndexEnd() {
 			$prependToTag = $this->aParams['tag1']['value'];		
